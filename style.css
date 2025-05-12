@@ -1,0 +1,141 @@
+/* Import elegantního fontu z Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'EB Garamond', serif;
+    background-color: #f0f8ff; /* Světle modré pozadí */
+}
+
+/* Book */
+.book {
+    position: relative;
+    width: 600px; /* Zmenšení šířky */
+    height: 800px; /* Zmenšení výšky */
+    transition: transform 0.5s;
+    background: linear-gradient(135deg, #f39c12, #e74c3c); /* Gradient na pozadí knihy */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Stín kolem knihy */
+}
+
+/* Paper */
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    perspective: 1500px;
+}
+
+.front,
+.back {
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.5s;
+    border-radius: 10px;
+}
+
+.front {
+    z-index: 1;
+    backface-visibility: hidden;
+    border-left: 3px solid #3498db; /* Modrá barva */
+}
+
+.back {
+    z-index: 0;
+}
+
+/* Obsah stránky */
+.front-content,
+.back-content {
+    width: 100%;
+    height: 100%;
+    padding: 40px 50px;
+    box-sizing: border-box;
+    color: #2c3e50;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+/* Nadpisy */
+.front-content h1,
+.back-content h1 {
+    font-size: 32px;
+    color: #8e44ad; /* Fialová pro pohádkový nádech */
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Efekt otočení stránky */
+.back-content {
+    transform: rotateY(180deg);
+}
+
+.flipped .front,
+.flipped .back {
+    transform: rotateY(-180deg);
+}
+
+/* Tlačítka */
+button {
+    border: none;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 30px;
+    cursor: pointer;
+    margin-top: 600px;
+    border-radius: 5px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #2980b9;
+}
+
+/* Z-index pro pořadí stránek */
+#p1 {
+    z-index: 5;
+}
+
+#p2 {
+    z-index: 4;
+}
+
+#p3 {
+    z-index: 3;
+}
+
+#p4 {
+    z-index: 2;
+}
+
+#p5 {
+    z-index: 1;
+}
